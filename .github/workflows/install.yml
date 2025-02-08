@@ -218,7 +218,6 @@ jobs:
           path: "install"
 
   release:
-    if: ${{ needs.meta.outputs.is_release == 'true' }}
     needs: [meta, windows, ubuntu, macos, android]
     runs-on: ubuntu-latest
     steps:
@@ -264,7 +263,7 @@ jobs:
         uses: MirrorChyan/uploading-action@v1
         with:
           filetype: "local"
-          filename: "M9A-win-x86_64-*.zip"
+          filename: "M9A-win-x86_64-${{ needs.meta.outputs.tag }}.zip"
           working-directory: assets/
           pick_files: '["resource", "interface.json"]'
           exclude_files: '["*model/ocr/**"]'
