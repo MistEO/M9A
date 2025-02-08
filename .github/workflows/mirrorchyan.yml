@@ -18,7 +18,7 @@ jobs:
           exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: M9A
 
-          owner: MaaXYZ
+          owner: MistEO
           repo: M9A
           github_token: ${{ secrets.GITHUB_TOKEN }}
           upload_token: ${{ secrets.MirrorChyanUploadToken }}
