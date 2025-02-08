@@ -266,6 +266,7 @@ jobs:
         
           filetype: "local"
           filename: "assets/M9A-win-x86_64-${{ needs.meta.outputs.tag }}.zip"
+          version_name: '${{ needs.meta.outputs.tag }}'
           pick_files: '["resource", "interface.json"]'
           exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: M9A
