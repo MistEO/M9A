@@ -259,24 +259,12 @@ jobs:
             fi
           done
 
-      - id: uploading
-        uses: MirrorChyan/uploading-action@v1
-        with:
-          fake_upload: true
-        
-          filetype: "local"
-          filename: "assets/M9A-win-x86_64-${{ needs.meta.outputs.tag }}.zip"
-          version_name: '${{ needs.meta.outputs.tag }}'
-          pick_files: '["resource", "interface.json"]'
-          exclude_files: '["*model/ocr/**"]'
-          mirrorchyan_rid: M9A
-          owner: MistEO
-          repo: M9A
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          upload_token: ${{ secrets.MirrorChyanUploadToken }}
-
       - uses: softprops/action-gh-release@v2
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger MirrorChyanUploading
+        run: |
+          gh workflow run mirrorchyan
