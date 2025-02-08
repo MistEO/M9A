@@ -263,8 +263,7 @@ jobs:
         uses: MirrorChyan/uploading-action@v1
         with:
           filetype: "local"
-          filename: "M9A-win-x86_64-${{ needs.meta.outputs.tag }}.zip"
-          working-directory: assets/
+          filename: "assets/M9A-win-x86_64-${{ needs.meta.outputs.tag }}.zip"
           pick_files: '["resource", "interface.json"]'
           exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: M9A
