@@ -262,6 +262,8 @@ jobs:
       - id: uploading
         uses: MirrorChyan/uploading-action@v1
         with:
+          fake_upload: true
+        
           filetype: "local"
           filename: "assets/M9A-win-x86_64-${{ needs.meta.outputs.tag }}.zip"
           pick_files: '["resource", "interface.json"]'
