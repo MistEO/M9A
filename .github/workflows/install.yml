@@ -260,6 +260,20 @@ jobs:
             fi
           done
 
+      - id: uploading
+        uses: MirrorChyan/uploading-action@v1
+        with:
+          filetype: "local"
+          filename: "M9A-win-x86_64-*.zip"
+          working-directory: assets/
+          pick_files: '["resource", "interface.json"]'
+          exclude_files: '["*model/ocr/**"]'
+          mirrorchyan_rid: M9A
+          owner: MistEO
+          repo: M9A
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          upload_token: ${{ secrets.MirrorChyanUploadToken }}
+
       - uses: softprops/action-gh-release@v2
         with:
           files: assets/*
