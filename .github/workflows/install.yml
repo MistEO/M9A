@@ -264,3 +264,4 @@ jobs:
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}
+          token: ${{ secrets.GITHUB_TOKEN }}
