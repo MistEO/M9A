@@ -268,3 +268,5 @@ jobs:
       - name: Trigger MirrorChyanUploading
         run: |
           gh workflow run mirrorchyan
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
